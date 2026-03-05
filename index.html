@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+	<meta name="description"
+		content="BDCH Studio - AI Video Production Agency. Creating stunning AI-generated content for advertising, marketplaces, and social media." />
+	<meta name="theme-color" content="#0a0e27" />
+	<title>BDCH Studio - AI Video Agency</title>
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	<link rel="apple-touch-icon" href="/favicon.png" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+		rel="stylesheet" />
+	<script type="module" crossorigin src="/assets/index-CilB5LK_.js"></script>
+	<link rel="stylesheet" crossorigin href="/assets/index-Dw_hFG8N.css">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://bdchvideo-zaoteyfa.manus.space/">
+	<meta property="og:title" content="BDCH Studio - AI Video Agency">
+	<meta property="og:description"
+		content="Современный сайт для AI видеоагентства с портфолио, услугами и формой сбора заявок. Включает рекламный контент, нейрофотосессии, контент для соцсетей и UGS ролики.">
+	<meta property="og:image"
+		content="https://files.manuscdn.com/webdev_screenshots/2026/03/04/4FS6XkZrhvLXeaWwrBjLom.png?x-oss-process=image/resize,w_1200/crop,h_630,x_0,y_0">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="BDCH Studio - AI Video Agency">
+	<meta name="twitter:description"
+		content="Современный сайт для AI видеоагентства с портфолио, услугами и формой сбора заявок. Включает рекламный контент, нейрофотосессии, контент для соцсетей и UGS ролики.">
+	<meta name="twitter:image"
+		content="https://files.manuscdn.com/webdev_screenshots/2026/03/04/4FS6XkZrhvLXeaWwrBjLom.png?x-oss-process=image/resize,w_1200/crop,h_630,x_0,y_0">
+	<meta name="twitter:image:width" content="1200">
+	<meta name="twitter:image:height" content="630">
+	<link rel="canonical" href="https://bdchvideo-zaoteyfa.manus.space/" />
+</head>
+
+<body>
+
+	<!-- SAFE PREMIUM AURORA BACKGROUND -->
+	<div class="aurora-bg">
+		<div class="aurora-blob aurora-1"></div>
+		<div class="aurora-blob aurora-2"></div>
+		<div class="aurora-blob aurora-3"></div>
+	</div>
+
+	<div id="root"></div>
+	<!-- CINEMATIC BLUR REVEAL SCRIPT V4 -->
+	<script>
+		(function () {
+			// Target all major blocks: cards, headers, text, forms, footer sections
+			const targetSelectors = '#portfolio .grid > div, section:nth-of-type(3) .grid > div, h2, h3, h4, p, form, .bg-card, footer > div';
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						// Slight delay to ensure React has fully painted
+						setTimeout(() => {
+							entry.target.setAttribute('data-scroll-reveal', 'visible');
+						}, 50);
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+
+			// Constantly scan for new elements (React hydration safe)
+			setInterval(() => {
+				const elements = document.querySelectorAll(targetSelectors);
+
+				elements.forEach(el => {
+					// Ignore hero elements
+					if (el.closest('section:first-of-type')) return;
+
+					if (!el.hasAttribute('data-scroll-reveal')) {
+						const rect = el.getBoundingClientRect();
+						// If it's way above the screen, show it instantly
+						if (rect.top < 0) {
+							el.setAttribute('data-scroll-reveal', 'visible');
+						} else {
+							// Otherwise, hide it and watch it
+							el.setAttribute('data-scroll-reveal', 'hidden');
+							observer.observe(el);
+						}
+					}
+				});
+			}, 300);
+		})();
+	</script>
+
+	<!-- TELEGRAM DIRECT FORM HANDLER (works without backend) -->
+	<script>
+		(function () {
+			const TG_TOKEN = '8774209392:AAFOKbPxn41O2gQ9ikKsntWrTIDxX08L424';
+			const TG_CHAT_ID = '1159139747';
+
+			function sendToTelegram(data) {
+				var msg = '🔔 <b>Новая заявка с сайта BDCH!</b>\n\n' +
+					'👤 <b>Имя:</b> ' + (data.name || '—') + '\n' +
+					'📧 <b>Email:</b> ' + (data.email || '—') + '\n' +
+					'📱 <b>Телефон:</b> ' + (data.phone || '—') + '\n' +
+					'🏢 <b>Компания:</b> ' + (data.company || 'Не указана');
+
+				return fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ chat_id: TG_CHAT_ID, text: msg, parse_mode: 'HTML' })
+				});
+			}
+
+			function showToast(success) {
+				var toast = document.createElement('div');
+				toast.style.cssText = 'position:fixed;bottom:100px;left:50%;transform:translateX(-50%);z-index:99999;padding:16px 28px;border-radius:12px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#fff;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:opacity 0.5s;opacity:1;';
+				if (success) {
+					toast.style.background = 'linear-gradient(135deg,#1a7a4a,#22c55e)';
+					toast.textContent = '✅ Заявка отправлена! Свяжемся в течение 24 часов.';
+				} else {
+					toast.style.background = 'linear-gradient(135deg,#7a1a1a,#ef4444)';
+					toast.textContent = '❌ Ошибка отправки. Свяжитесь с нами в Telegram.';
+				}
+				document.body.appendChild(toast);
+				setTimeout(function () { toast.style.opacity = '0'; }, 3500);
+				setTimeout(function () { toast.remove(); }, 4000);
+			}
+
+			// DOM-level form intercept (works without any backend)
+			document.addEventListener('submit', function (e) {
+				var form = e.target;
+				// Only intercept the lead/contact form (has name, email, phone fields)
+				var nameEl = form.querySelector('input[name="name"]');
+				var emailEl = form.querySelector('input[name="email"]');
+				var phoneEl = form.querySelector('input[name="phone"]');
+
+				if (!nameEl || !emailEl || !phoneEl) return; // not our form
+
+				e.preventDefault();
+				e.stopPropagation();
+
+				var btn = form.querySelector('button[type="submit"]');
+				if (btn) { btn.disabled = true; btn.textContent = 'Отправка...'; }
+
+				var data = {
+					name: nameEl.value,
+					email: emailEl.value,
+					phone: phoneEl.value,
+					company: (form.querySelector('input[name="company"]') || {}).value || ''
+				};
+
+				// Basic validation
+				if (!data.name.trim() || !data.email.trim() || !data.phone.trim()) {
+					showToast(false);
+					if (btn) { btn.disabled = false; btn.textContent = 'Отправить заявку'; }
+					return;
+				}
+
+				sendToTelegram(data)
+					.then(function (r) { return r.json(); })
+					.then(function (r) {
+						if (r.ok) {
+							showToast(true);
+							form.reset();
+							if (btn) { btn.textContent = 'Спасибо!'; }
+						} else {
+							showToast(false);
+							if (btn) { btn.disabled = false; btn.textContent = 'Отправить заявку'; }
+						}
+					})
+					.catch(function () {
+						showToast(false);
+						if (btn) { btn.disabled = false; btn.textContent = 'Отправить заявку'; }
+					});
+			}, true); // true = capture phase, fires before React
+		})();
+	</script>
+
+
+
+	<!-- FLOATING TELEGRAM WIDGET -->
+	<a href="https://t.me/bdch_cooperation" target="_blank" rel="noopener noreferrer" class="floating-tg-widget">
+		<div class="tg-pulse"></div>
+		<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd"
+				d="M22.0528 2.05389L1.64273 10.0573C0.870341 10.3601 0.880425 10.7963 1.50379 10.9858L6.71261 12.6074L18.7303 4.96638C19.2985 4.62259 19.819 4.8028 19.3879 5.18562L9.65868 13.9715H9.65345L9.65868 13.9719L9.34005 18.724C9.80735 18.724 10.0135 18.5111 10.2798 18.2526L12.5358 16.0592L17.228 19.5259C18.0934 20.0028 18.7249 19.7554 18.9419 18.7289L22.0286 4.19523C22.3556 2.87106 21.5282 2.25893 20.176 2.84666L22.0528 2.05389Z"
+				fill="currentColor" />
+		</svg>
+	</a>
+
+</body>
+
+
+</html>
